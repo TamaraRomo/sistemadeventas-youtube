@@ -6,7 +6,7 @@
  * Time: 18:45
  */
 
-$sql_compras = "SELECT *,
+$sql_mermas = "SELECT *,
                 pro.codigo as codigo, 
                 pro.nombre as nombre_producto, 
                 pro.descripcion as descripcion, 
@@ -27,11 +27,11 @@ $sql_compras = "SELECT *,
                 prov.direccion as direccion_proveedor, 
                 us.nombres as nombres_usuario, 
                 (co.cantidad * co.precio_compra) as subtotal  -- Aquí se agrega el subtotal
-                FROM tb_compras as co 
+                FROM tb_mermas as co 
                 INNER JOIN tb_almacen as pro ON co.id_producto = pro.id_producto 
                 INNER JOIN tb_categorias as cat ON cat.id_categoria = pro.id_categoria
                 INNER JOIN tb_usuarios as us ON co.id_usuario = us.id_usuario 
                 INNER JOIN tb_proveedores as prov ON co.id_proveedor = prov.id_proveedor";
-$query_compras = $pdo->prepare($sql_compras);
-$query_compras->execute();
-$compras_datos = $query_compras->fetchAll(PDO::FETCH_ASSOC);
+$query_mermas = $pdo->prepare($sql_mermas);
+$query_mermas->execute();
+$compras_datos = $query_mermas->fetchAll(PDO::FETCH_ASSOC);

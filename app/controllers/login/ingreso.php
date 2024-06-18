@@ -12,13 +12,28 @@ $email = $_POST['email'];
 $password_user = $_POST['password_user'];
 
 
-
-
 $contador = 0;
-$sql = "SELECT * FROM tb_usuarios WHERE email = '$email' ";
+$sql = "SELECT * FROM tb_usuarios WHERE email = '$email' AND password_user ='$password_user'";
 $query = $pdo->prepare($sql);
 $query->execute();
 $usuarios = $query->fetchAll(PDO::FETCH_ASSOC);
+
+foreach ($usuarios as $usuario){
+    $contador = $contador + 1;
+    $email_tabla = $usuario['email'];
+    $nombre = $usuario['nombres'];
+}
+
+if($contador == 0){
+    echo "Datos incorrectos";
+}else{
+    echo "Datos correctos";
+    session_start();
+    $_SESSION['sesion_email'] = $email;
+    header('Location: '.$URL.'index.php');
+}
+
+/*
 foreach ($usuarios as $usuario){
     $contador = $contador + 1;
     $email_tabla = $usuario['email'];
@@ -39,4 +54,4 @@ if( ($contador > 0) && (password_verify($password_user, $password_user_tabla))  
     $_SESSION['mensaje'] = "Error datos incorrectos";
     header('Location: '.$URL.'/login');
 }
-
+*/

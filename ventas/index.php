@@ -5,7 +5,7 @@ include ('../layout/sesion.php');
 include ('../layout/parte1.php');
 
 
-include ('../app/controllers/compras/listado_de_compras.php');
+include ('../app/controllers/ventas/listado_de_ventas.php');
 
 
 ?>
@@ -17,7 +17,7 @@ include ('../app/controllers/compras/listado_de_compras.php');
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-12">
-                    <h1 class="m-0">Listado de compras actualizado</h1>
+                    <h1 class="m-0">Listado de ventas actualizado</h1>
                 </div><!-- /.col -->
             </div><!-- /.row -->
         </div><!-- /.container-fluid -->
@@ -33,13 +33,7 @@ include ('../app/controllers/compras/listado_de_compras.php');
                 <div class="col-md-12">
                     <div class="card card-outline card-primary">
                         <div class="card-header">
-                            <h3 class="card-title">Compras registradas</h3>
-                            <div class="card-tools">
-                                <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
-                                </button>
-                            </div>
-
-                            <h3 class="card-title">Monto de Ganancia</h3>
+                            <h3 class="card-title">Ventas registradas</h3>
                             <div class="card-tools">
                                 <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
                                 </button>
@@ -47,23 +41,23 @@ include ('../app/controllers/compras/listado_de_compras.php');
 
                         </div>
 
-                         <!-- Tabla de reporte Historial -->
                         <div class="card-body" style="display: block;">
                             <div class="table table-responsive">
                                 <table id="example1" class="table table-bordered table-striped table-sm">
                                     <thead>
                                     <tr>
                                         <th><center>Nro</center></th>
-                                        <th><center>Nro de la compra</center></th>
+                                        <th><center>Nro de la venta</center></th>
                                         <th><center>Producto</center></th>
-                                        <th><center>Fecha de compra</center></th>
+                                        <th><center>Fecha de venta</center></th>
                                         <th><center>Proveedor</center></th>
                                         <th><center>Comprobante</center></th>
                                         <th><center>Usuario</center></th>
-                                        <th><center>Precio compra</center></th>
+                                        <th><center>Precio venta</center></th>
                                         <th><center>Cantidad</center></th>
                                         <th><center>Subtotal</center></th>
                                         <th><center>Acciones</center></th>
+                                        
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -176,6 +170,10 @@ include ('../app/controllers/compras/listado_de_compras.php');
                                                                     </div>
                                                                 </div>
 
+
+
+
+
                                                             </div>
                                                         </div>
                                                         <!-- /.modal-content -->
@@ -261,7 +259,6 @@ include ('../app/controllers/compras/listado_de_compras.php');
                                             <td><?php echo $compras_dato['precio_compra'];?></td>
                                             <td><?php echo $compras_dato['cantidad'];?></td>
                                             <td class="subtotal"><?php echo number_format($compras_dato['precio_compra'] * $compras_dato['cantidad'], 2); ?></td>
-                            
                                             <td>
                                                 <center>
                                                     <div class="btn-group">
@@ -299,7 +296,6 @@ include ('../app/controllers/compras/listado_de_compras.php');
 <!-- /.content-wrapper -->
 
 
-
 <?php include ('../layout/mensajes.php'); ?>
 <?php include ('../layout/parte2.php'); ?>
 
@@ -314,8 +310,8 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 
-<script>
 
+<script>
     $(function () {
         $("#example1").DataTable({
             "pageLength": 5,
@@ -326,7 +322,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 "infoFiltered": "(Filtrado de _MAX_ total Compras)",
                 "infoPostFix": "",
                 "thousands": ",",
-                "lengthMenu": "Mostrar _MENU_ Compras",
+                "lengthMenu": "Mostrar _MENU_ Ventas",
                 "loadingRecords": "Cargando...",
                 "processing": "Procesando...",
                 "search": "Buscador:",

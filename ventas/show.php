@@ -6,7 +6,7 @@ include ('../layout/parte1.php');
 
 include ('../app/controllers/almacen/listado_de_productos.php');
 include ('../app/controllers/proveedores/listado_de_proveedores.php');
-include ('../app/controllers/compras/cargar_compra.php');
+include ('../app/controllers/ventas/cargar_venta.php');
 
 ?>
 
@@ -202,7 +202,7 @@ include ('../app/controllers/compras/cargar_compra.php');
                         <div class="col-md-12">
                             <div class="card card-outline card-primary">
                                 <div class="card-header">
-                                    <h3 class="card-title">Detalle de la compra</h3>
+                                    <h3 class="card-title">Detalle de la venta</h3>
                                     <div class="card-tools">
                                         <button type="button" class="btn btn-tool" data-card-widget="collapse">
                                             <i class="fas fa-minus"></i>
@@ -215,7 +215,7 @@ include ('../app/controllers/compras/cargar_compra.php');
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label for="">Número de la compra</label>
+                                                <label for="">Número de la venta</label>
                                                 <input type="text" value="<?php echo $id_compra_get; ?>" style="text-align: center" class="form-control" disabled>
                                                 <input type="text" value="<?php echo $id_compra_get; ?>" id="nro_compra" hidden>
                                             </div>
@@ -223,21 +223,21 @@ include ('../app/controllers/compras/cargar_compra.php');
 
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label for="">Fecha de la compra</label>
+                                                <label for="">Fecha de la venta</label>
                                                 <input type="date" value="<?= $fecha_compra; ?>" class="form-control" id="fecha_compra" disabled>
                                             </div>
                                         </div>
 
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label for="">Comprobante de la compra</label>
+                                                <label for="">Comprobante de la venta</label>
                                                 <input type="text" value="<?= $comprobante; ?>" class="form-control" id="comprobante" disabled>
                                             </div>
                                         </div>
 
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label for="">Precio de la compra</label>
+                                                <label for="">Precio de la venta</label>
                                                 <input type="text" value="<?= $precio_compra; ?>" class="form-control" id="precio_compra_controlador" disabled>
                                             </div>
                                         </div>
@@ -245,7 +245,7 @@ include ('../app/controllers/compras/cargar_compra.php');
 
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label for="">Cantidad de la compra</label>
+                                                <label for="">Cantidad de la venta</label>
                                                 <input type="number" value="<?= $cantidad; ?>" id="cantidad_compra" style="text-align: center" class="form-control" disabled>
                                             </div>
                                         </div>

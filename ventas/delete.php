@@ -6,7 +6,7 @@ include ('../layout/parte1.php');
 
 include ('../app/controllers/almacen/listado_de_productos.php');
 include ('../app/controllers/proveedores/listado_de_proveedores.php');
-include ('../app/controllers/compras/cargar_compra.php');
+include ('../app/controllers/ventas/cargar_venta.php');
 
 ?>
 
@@ -33,9 +33,9 @@ include ('../app/controllers/compras/cargar_compra.php');
                 <div class="col-md-9">
                     <div class="row">
                         <div class="col-md-12">
-                            <div class="card card-info">
+                            <div class="card card-danger">
                                 <div class="card-header">
-                                    <h3 class="card-title">Datos de la compra</h3>
+                                    <h3 class="card-title">¿Está seguro de eliminar la compra?</h3>
                                     <div class="card-tools">
                                         <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
                                         </button>
@@ -49,7 +49,7 @@ include ('../app/controllers/compras/cargar_compra.php');
                                             <div class="row">
                                                 <div class="col-md-4">
                                                     <div class="form-group">
-                                                        <input type="text" id="id_producto" hidden>
+                                                        <input type="text" value="<?php echo $id_producto; ?>" id="id_producto" hidden>
                                                         <label for="">Código:</label>
                                                         <input type="text" class="form-control" value="<?= $codigo; ?>" id="codigo" disabled>
                                                     </div>
@@ -200,9 +200,9 @@ include ('../app/controllers/compras/cargar_compra.php');
 
                     <div class="row">
                         <div class="col-md-12">
-                            <div class="card card-outline card-primary">
+                            <div class="card card-outline card-danger">
                                 <div class="card-header">
-                                    <h3 class="card-title">Detalle de la compra</h3>
+                                    <h3 class="card-title">Detalle de la venta</h3>
                                     <div class="card-tools">
                                         <button type="button" class="btn btn-tool" data-card-widget="collapse">
                                             <i class="fas fa-minus"></i>
@@ -223,21 +223,21 @@ include ('../app/controllers/compras/cargar_compra.php');
 
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label for="">Fecha de la compra</label>
+                                                <label for="">Fecha de la venta</label>
                                                 <input type="date" value="<?= $fecha_compra; ?>" class="form-control" id="fecha_compra" disabled>
                                             </div>
                                         </div>
 
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label for="">Comprobante de la compra</label>
+                                                <label for="">Comprobante de la venta</label>
                                                 <input type="text" value="<?= $comprobante; ?>" class="form-control" id="comprobante" disabled>
                                             </div>
                                         </div>
 
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label for="">Precio de la compra</label>
+                                                <label for="">Precio de la venta</label>
                                                 <input type="text" value="<?= $precio_compra; ?>" class="form-control" id="precio_compra_controlador" disabled>
                                             </div>
                                         </div>
@@ -245,7 +245,7 @@ include ('../app/controllers/compras/cargar_compra.php');
 
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label for="">Cantidad de la compra</label>
+                                                <label for="">Cantidad de la venta</label>
                                                 <input type="number" value="<?= $cantidad; ?>" id="cantidad_compra" style="text-align: center" class="form-control" disabled>
                                             </div>
                                         </div>
@@ -257,6 +257,49 @@ include ('../app/controllers/compras/cargar_compra.php');
                                                 <input type="text" class="form-control" value="<?php echo $nombres_usuario; ?>" disabled>
                                             </div>
                                         </div>
+
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                               <button class="btn btn-danger btn-block" id="btn_eliminar"><i class="fa fa-trash"></i> Eliminar</button>
+                                            </div>
+                                        </div>
+
+                                        <div id="respuesta_delete"></div>
+
+                                        <script>
+                                            $('#btn_eliminar').click(function () {
+                                                var id_compra = '<?php echo $id_compra_get; ?>';
+                                                var id_producto = $('#id_producto').val();
+                                                var cantidad_compra = '<?= $cantidad; ?>';
+                                                var stock_actual = '<?= $stock; ?>';
+
+                                                Swal.fire({
+                                                    title: '¿Está seguro de eliminar la venta?',
+                                                    icon: 'question',
+                                                    showCancelButton: true,
+                                                    confirmButtonColor: '#3085d6',
+                                                    cancelButtonColor: '#d33',
+                                                    confirmButtonText: 'Si deseo eliminar'
+                                                }).then((result) => {
+                                                    if (result.isConfirmed) {
+                                                        Swal.fire(
+                                                            eliminar(),
+                                                            'Venta eliminada',
+                                                            'success'
+
+                                                        )
+                                                    }
+                                                });
+
+                                                function eliminar() {
+                                                    var url = "../app/controllers/ventas/delete.php";
+                                                    $.get(url,{id_compra:id_compra,id_producto:id_producto,cantidad_compra:cantidad_compra,stock_actual:stock_actual},function (datos) {
+                                                        $('#respuesta_delete').html(datos);
+                                                    });
+                                                }
+                                            });
+                                        </script>
+
                                     </div>
                                     <hr>
 
@@ -282,6 +325,7 @@ include ('../app/controllers/compras/cargar_compra.php');
 
 <?php include ('../layout/mensajes.php'); ?>
 <?php include ('../layout/parte2.php'); ?>
+
 
 
 

@@ -8,7 +8,10 @@ include ('app/controllers/roles/listado_de_roles.php');
 include ('app/controllers/categorias/listado_de_categoria.php');
 include ('app/controllers/almacen/listado_de_productos.php');
 include ('app/controllers/proveedores/listado_de_proveedores.php');
+include ('app/controllers/juntas/listado_de_juntas.php');
 ?>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -17,7 +20,7 @@ include ('app/controllers/proveedores/listado_de_proveedores.php');
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-12">
-                    <h1 class="m-0">Bienvenido al SISTEMA de VENTAS - <?php echo $rol_sesion; ?> </h1>
+                    <h1 class="m-0">BIENVENIDO AL SISTEMA DE ALMACÉN - <?php echo $rol_sesion; ?> </h1>
                 </div><!-- /.col -->
             </div><!-- /.row -->
         </div><!-- /.container-fluid -->
@@ -152,6 +155,30 @@ include ('app/controllers/proveedores/listado_de_proveedores.php');
                             </div>
                         </a>
                         <a href="<?php echo $URL;?>/proveedores" class="small-box-footer">
+                            Más detalle <i class="fas fa-arrow-circle-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+
+                <div class="col-lg-3 col-6">
+                    <div class="small-box bg-danger">
+                        <div class="inner">
+                            <?php
+                            $contador_de_proveedores = 0;
+                            foreach ($proveedores_datos as $proveedores_dato){
+                                $contador_de_proveedores = $contador_de_proveedores + 1;
+                            }
+                            ?>
+                            <h3><?php echo $contador_de_proveedores;?></h3>
+                            <p>Juntas Registradas</p>
+                        </div>
+                        <a href="<?php echo $URL;?>/juntas">
+                            <div class="icon">
+                                <i class="fa-solid fa-person-circle-plus"></i>
+                            </div>
+                        </a>
+                        <a href="<?php echo $URL;?>/juntas" class="small-box-footer">
                             Más detalle <i class="fas fa-arrow-circle-right"></i>
                         </a>
                     </div>

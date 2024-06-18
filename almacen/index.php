@@ -55,7 +55,7 @@ include ('../app/controllers/almacen/listado_de_productos.php');
                                        <th><center>Stock</center></th>
                                        <th><center>Precio compra</center></th>
                                        <th><center>Precio venta</center></th>
-                                       <th><center>Fecha compra</center></th>
+                                       <th><center>Fecha alta</center></th>
                                        <th><center>Usuario</center></th>
                                        <th><center>Acciones</center></th>
                                    </tr>

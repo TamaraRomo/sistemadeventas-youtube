@@ -40,13 +40,13 @@
     ?>
 
     <center>
-        <img src="https://img.freepik.com/vector-gratis/gerentes-startups-que-presentan-analizan-tabla-crecimiento-ventas-grupo-trabajadores-monton-dinero-efectivo-cohetes-diagramas-barras-flecha-monton-dinero_74855-14166.jpg?w=996&t=st=1673983349~exp=1673983949~hmac=b50c9a1d93c8d39cec56f10df254278c5ab4acba8fb0c9a52e31eede2ebf03bc"
+        <img src="https://img.freepik.com/vector-gratis/ilustracion-concepto-interior-almacen_114360-22336.jpg?t=st=1717633502~exp=1717637102~hmac=efad9d5d538aaf1357cd8e0cf7d7c6c93a66a95ea71dd31151fe19262fd244c8&w=740"
              alt="" width="300px">
     </center>
     <br>
     <div class="card card-outline card-primary">
         <div class="card-header text-center">
-            <a href="../public/templeates/AdminLTE-3.2.0/index2.html" class="h1"><b>Sistema de </b>VENTAS</a>
+            <a href="../public/templeates/AdminLTE-3.2.0/index2.html" class="h1"><b>Sistema de </b>ALMACÉN</a>
         </div>
         <div class="card-body">
             <p class="login-box-msg">Ingrese sus datos</p>
